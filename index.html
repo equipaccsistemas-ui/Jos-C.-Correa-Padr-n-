@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCard EQUIPACC - LIC. RAFAEL S. TOLEDO HIGUERA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+<style>
+	
+.contact-float{
+    position:fixed;
+    right:20px;
+    bottom:100px;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#005BBB;
+    color:white;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    line-height:1.1;
+    font-size:13px;
+    font-weight:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    z-index:9999;
+    transition:.3s;
+}
+
+.contact-float:hover{
+    transform:scale(1.08);
+}
+	
+	
+	.qr-section{
+    margin-top:40px;
+}
+
+.qr-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.qr-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    transition:.3s;
+}
+
+.qr-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(0,119,255,.35);
+}
+
+.qr-card h3{
+    color:white;
+    font-size:1rem;
+    margin-bottom:15px;
+    min-height:50px;
+}
+
+.qr-card img{
+    width:180px;
+    max-width:100%;
+    border-radius:12px;
+    background:white;
+    padding:10px;
+}
+
+.qr-card p{
+    color:#d9e7ff;
+    margin-top:12px;
+    font-size:.9rem;
+}
+.video-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    background:linear-gradient(135deg,#003087,#005BBB);
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,91,187,.35);
+}
+
+.video-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,91,187,.50);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:url('Fondo.jpg') center center/cover no-repeat fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,80,.30);
+    backdrop-filter:blur(2px);
+}
+
+.container{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:700px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.0);
+    animation:fadeIn 1s ease;
+}
+
+.header{
+    padding:20px;
+    text-align:center;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.98),
+        rgba(255,255,255,0.95)
+    );
+    border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+.logo{
+    width:500px;
+    max-width:100%;
+    margin-bottom:10px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:35px;
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+.photo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid rgba(255,255,255,.35);
+    box-shadow:0 0 35px rgba(0,120,255,.45);
+}
+
+.info{
+    flex:1;
+    color:white;
+}
+
+.info h1{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.position{
+    display:inline-block;
+    background:#000000;
+    padding:10px 18px;
+    border-radius:50px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.personal{
+    display:grid;
+    grid-template-columns:130px auto;
+    gap:10px;
+    font-size:.95rem;
+}
+
+.personal strong{
+    color:#7fc7ff;
+}
+
+.section{
+    padding:0 40px 40px;
+}
+
+.section-title{
+    color:white;
+    font-size:1.4rem;
+    margin-bottom:25px;
+    border-left:5px solid #ffffff;
+    padding-left:15px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.contact-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
+    padding:18px;
+    border-radius:18px;
+    color:white;
+    transition:.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.12);
+}
+
+.contact-card span{
+    display:block;
+    color:#7fc7ff;
+    margin-bottom:5px;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#ffffff,#007cff);
+    padding:14px 22px;
+    border-radius:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,119,200,.35);
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.socials a{
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:12px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.socials a:hover{
+    transform:translateY(-3px);
+}
+
+/* Facebook */
+.facebook{
+    background:#1877F2;
+}
+
+.facebook:hover{
+    background:#1664cc;
+}
+
+/* YouTube */
+.youtube{
+    background:#FF0000;
+}
+
+.youtube:hover{
+    background:#cc0000;
+}
+
+/* TikTok */
+.tiktok{
+    background:#000000;
+}
+
+.tiktok:hover{
+    background:#222222;
+}
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:white;
+    background:rgba(0,0,0,.25);
+}
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    font-size:32px;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    z-index:9999;
+    transition:.3s;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+        align-items:flex-start;
+    }
+
+    .container{
+        max-width:100%;
+    }
+
+    .card{
+        border-radius:20px;
+    }
+
+    .logo{
+        width:220px;
+        max-width:90%;
+    }
+
+    .profile{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+        padding:25px;
+    }
+
+    .photo{
+        width:150px;
+        height:150px;
+    }
+
+    .info{
+        width:100%;
+    }
+
+    .info h1{
+        font-size:1.8rem;
+        line-height:1.2;
+        word-break:break-word;
+    }
+
+    .position{
+        font-size:.9rem;
+        padding:10px 20px;
+    }
+
+    .personal{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        padding:20px;
+    }
+
+    .section{
+        padding:20px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-card{
+        text-align:center;
+    }
+
+    .qr-grid{
+        grid-template-columns:1fr;
+    }
+
+    .qr-card img{
+        width:160px;
+    }
+
+    .socials{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .socials a{
+        width:220px;
+        text-align:center;
+    }
+
+    .whatsapp-float{
+        width:60px;
+        height:60px;
+        font-size:28px;
+        right:15px;
+        bottom:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="card">
+
+    <div class="header">
+        <img src="Equipacc_Logo.png" class="logo" alt="EQUIPACC">
+    </div>
+
+    <div class="profile">
+
+        <img src="RSTH.png" class="photo" alt="RAFAEL S. TOLEDO HIGUERA">
+
+        <div class="info">
+
+            <h1>LIC. RAFAEL S. TOLEDO HIGUERA</h1>
+
+            <div class="position">
+                DIRECTOR GENERAL
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <div class="section-title">
+            Información de Contacto
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <span>WhatsApp</span>
+                +52 56 1366 5845
+            </div>
+
+            <div class="contact-card">
+                <span>Correo</span>
+                rtoledo@equipacc.com
+            </div>
+
+            <div class="contact-card">
+                <span>Sitio Web</span>
+                www.equipacc.com.mx
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+        </div>
+	
+	<div class="qr-section">
+
+    <div class="section-title">
+        Soluciones EQUIPACC
+    </div>
+
+    <div class="qr-grid">
+
+<div class="qr-card">
+    <h3>¿QUIÉNES SOMOS?</h3>
+
+    <img src="QR1.png" alt="QR Quienes Somos">
+
+    <p>Escanea para conocer más.</p>
+
+    <a class="video-btn"
+       href="https://youtu.be/CdFY9u9pJFI"
+       target="_blank">
+       ▶ Ver Video
+    </a>
+</div>
+      <div class="qr-card">
+    <h3>GRÚAS A PRUEBA DE EXPLOSIÓN</h3>
+
+    <img src="QR2.png" alt="QR Explosión">
+
+    <p>Escanea para conocer más.</p>
+
+    <a class="video-btn"
+       href="https://youtu.be/em7yXByDqq0?si=uAxU9xmie69ycX7j"
+       target="_blank">
+       ▶ Ver Video
+    </a>
+</div>
+
+      <div class="qr-card">
+    <h3>GRÚAS A PRUEBA DE CORROSIÓN</h3>
+
+    <img src="QR3.png" alt="QR Corrosión">
+
+    <p>Escanea para conocer más.</p>
+
+    <a class="video-btn"
+       href="https://youtu.be/1a5SGkKf4yA?si=sGw7M39G0fz5SdsZ"
+       target="_blank">
+       ▶ Ver Video
+    </a>
+</div>
+
+      <div class="qr-card">
+    <h3>POLIPASTOS MONORRIEL</h3>
+
+    <img src="QR4.png" alt="QR Polipastos">
+
+    <p>Escanea para conocer más.</p>
+
+    <a class="video-btn"
+       href="https://youtu.be/dg9vW_g7nhM?si=0lXZFpgMhfV83Nv0"
+       target="_blank">
+       ▶ Ver Video
+    </a>
+</div>
+
+    </div>
+
+</div>
+
+        <div class="socials">
+
+   	 <a class="facebook"	href="https://www.facebook.com/GruasEquipacc"
+    	   target="_blank">
+     	  Facebook
+ 	   </a>
+
+   	 <a class="youtube"
+      	 href="https://www.youtube.com/@equipaccgruasviajeras6843"
+    	   target="_blank">
+     	  YouTube
+  	  </a>
+
+  	  <a class="tiktok"
+    	   href="https://www.tiktok.com/@equipaccgruasviajeras"
+     	  target="_blank">
+    	   TikTok
+  	  </a>
+
+	</div>
+
+    </div>
+
+    <div class="footer">
+        EQUIPACC · Hoists & Traveling Cranes
+    </div>
+
+</div>
+
+</div>
+
+<a class="whatsapp-float"
+   href="https://wa.me/525613665845"
+   target="_blank">
+   💬
+</a>
+<a class="contact-float"
+   href="Rafael_Toledo.vcf"
+   download>
+   Añadir<br>Contacto
+</a>
+</body>
+</html>
