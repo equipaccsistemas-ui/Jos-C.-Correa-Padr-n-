@@ -3,44 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VCard EQUIPACC - LIC. RAFAEL S. TOLEDO HIGUERA</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
+<title>VCard EQUIPACC - JOSE C. CORREA PADRON</title>
 
 <style>
-	
-.contact-float{
-    position:fixed;
-    right:20px;
-    bottom:100px;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:#005BBB;
+
+.personal-table,
+.personal-row,
+.label,
+.value{
     color:white;
-    text-decoration:none;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    line-height:1.1;
-    font-size:13px;
-    font-weight:600;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-    z-index:9999;
-    transition:.3s;
 }
 
-.contact-float:hover{
-    transform:scale(1.08);
+.section-title{
+    color:white;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:20px;
+    padding-left:15px;
+    border-left:6px solid #ffffff;
+    text-align:left;
+    display:block;
+    width:100%;
 }
 
 body{
     min-height:100vh;
-    background:url('Fondo.jpg') center center/cover no-repeat fixed;
+    background:url('Fondo.png') center center/cover no-repeat fixed;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -54,6 +42,56 @@ body::before{
     inset:0;
     background:rgba(0,0,80,.30);
     backdrop-filter:blur(2px);
+}
+
+.personal-table{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:24px;
+    overflow:hidden;
+    backdrop-filter:blur(8px);
+}
+
+.personal-row{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    align-items:center;
+    min-height:70px;
+    border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.personal-row:last-child{
+    border-bottom:none;
+}
+
+.label{
+    padding:0 25px;
+    color:white;
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.value{
+    padding:0 25px;
+    color:white;
+    font-size:1.2rem;
+}
+
+@media(max-width:768px){
+
+    .personal-row{
+        grid-template-columns:1fr;
+        padding:15px 0;
+    }
+
+    .label{
+        padding:0 20px 5px;
+    }
+
+    .value{
+        padding:0 20px;
+    }
+
 }
 
 .container{
@@ -205,7 +243,8 @@ body::before{
     justify-content:center;
     gap:15px;
     flex-wrap:wrap;
-    margin-top:25px;
+    margin-top:60px;
+    margin-bottom:40px;
 }
 
 .socials a{
@@ -358,14 +397,6 @@ body::before{
         text-align:center;
     }
 
-    .qr-grid{
-        grid-template-columns:1fr;
-    }
-
-    .qr-card img{
-        width:160px;
-    }
-
     .socials{
         flex-direction:column;
         align-items:center;
@@ -398,14 +429,14 @@ body::before{
 
     <div class="profile">
 
-        <img src="RSTH.png" class="photo" alt="RAFAEL S. TOLEDO HIGUERA">
+        <img src="JCCP.png" class="photo" alt="RAFAEL S. TOLEDO HIGUERA">
 
         <div class="info">
 
-            <h1>LIC. RAFAEL S. TOLEDO HIGUERA</h1>
+            <h1>JOSE C. CORREA PADRON</h1>
 
             <div class="position">
-                DIRECTOR GENERAL
+                JEFE DE DPTO. ELÉCTRICO
             </div>
 
         </div>
@@ -413,7 +444,35 @@ body::before{
     </div>
 
     <div class="section">
+<div class="section-title">
+        Datos Personales
+    </div>
 
+    <div class="personal-table">
+
+        <div class="personal-row">
+            <div class="label">CURP:</div>
+            <div class="value">COPC790329HMCRDP02</div>
+        </div>
+
+        <div class="personal-row">
+            <div class="label">RFC:</div>
+            <div class="value">COPC790329TP7</div>
+        </div>
+
+        <div class="personal-row">
+            <div class="label">NSS:</div>
+            <div class="value">9299790110-0</div>
+        </div>
+
+    </div>
+	<div class="section">
+
+  	<div class="section">
+
+	</div>
+
+	</div>
         <div class="section-title">
             Información de Contacto
         </div>
@@ -436,16 +495,6 @@ body::before{
             </div>
 
         </div>
-
-        <div class="buttons">
-
-        </div>
-	
-	<div class="qr-section">
-
-    <div class="section-title">
-        Soluciones EQUIPACC
-    </div>
 
 </div>
 
@@ -484,11 +533,6 @@ body::before{
    href="https://wa.me/525613665845"
    target="_blank">
    💬
-</a>
-<a class="contact-float"
-   href="Rafael_Toledo.vcf"
-   download>
-   Añadir<br>Contacto
 </a>
 </body>
 </html>
